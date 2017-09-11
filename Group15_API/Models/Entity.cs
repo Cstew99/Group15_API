@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace Group15_API.Models
 {
 	[XmlRoot("Entity")]
-	public abstract class Entity
+	public abstract class Entity:IEquatable<Entity>
 	{
 		protected int id;
 
@@ -25,6 +25,11 @@ namespace Group15_API.Models
 		{
 			get { return id;}
 			set { id = value; }
+		}
+
+		public bool Equals(Entity other)
+		{
+			return (this.ID == other.ID);
 		}
 	}
 }
