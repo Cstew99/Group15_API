@@ -22,6 +22,17 @@ namespace Group15_API.Models
 			this.price = price;
 		}
 
+		public virtual string To_HTMLCard()
+		{
+			string html = string.Empty;
+			html += string.Format("<form class=\"product\" method=\"post\">");
+			html += string.Format("<img>",ID);
+			html += string.Format("<h4>{0}</h4>",Name);
+			html += string.Format("<input type=\"submit\" value=\"{0:C}\"/>",Price);
+			html += string.Format("</form>");
+			return html;
+		}
+
 		[XmlAttribute("Name")]
 		public string Name
 		{
